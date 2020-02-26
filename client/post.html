@@ -1,0 +1,261 @@
+<html>
+<header>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+    <script src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"
+        crossorigin="anonymous"></script>
+    <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
+    <title>Simple Hello Vue.js Application</title>
+    <base target="_top">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/…/…/1.0.0/js/materialize.min.js"></script>
+
+</header>
+
+<body>
+    <div id="example">
+        <!-- <input v-model="name" placeholder="edit me">
+        <button v-on:click="greets">Greet</button> -->
+
+        <div id="app-test">
+            <div class="container col l10">
+                <div class="" style="width:90%; height:100%;margin-left: 5%;">
+                    <div class="row">
+
+                        <div class="col s3 left">
+                            <img width="250"
+                                src="https://scontent.fbkk9-2.fna.fbcdn.net/v/t1.15752-9/78506061_2182062775428624_6907574689313325056_n.jpg?_nc_cat=109&_nc_eui2=AeHUWQy5y8y9_QlBNpFjkUJG_2cgrVoJZzYzTOpv-6MbHXBiuFGoo9aSWG4jAKyZpWZSLbhj1gmDFMWTgiWs3bXXAMPQK83wvv-Ziqb_JQ4_zQ&_nc_ohc=i-acrJpvG7gAQnKc23F3pqcjs3h_1K1k3gceftcHVMIZ3wFUhHjEXm4Ag&_nc_ht=scontent.fbkk9-2.fna&oh=ce6413c0c8648cd23f9ad04666cd9cc4&oe=5E7C712A">
+                        </div>
+                        <div class="col s9 center">
+                            <h3>บริษัท อินโนซอฟต์แวร์จำกัด</h3>
+                            <h6>ที่อยู่32 หมู่ที่1 ตำบลหนองหาร อำภอสันทราย จังหวัดเชียงใหม่<br><br>
+                                โทรศัพท์/โทรสาร: 053 - 666555 E-mail: info@innosoftware.com</h6>
+                        </div>
+                    </div>
+                    <div class="rigth"></div>
+                    <br>
+                    <div class="center">
+                        <h5><b>ใบเสร็จรับเงิน</b></h5>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col l6 s6">
+                            <br><br><br>    
+                            <lable>รหัสลูกค้า: </lable>
+                            <input style="width: 10em;" v-model="customernumber" placeholder="153002323541" size="4">
+                        </div>
+                        <div class="col l6" style="border: 1px solid black;">
+                           <br>
+                            <lable>เลขที่: </lable>
+                            <input style="width: 10em;" v-model="number" placeholder="001">
+                            <lable>วันที่: </lable>
+                            <input type="date" style="width: 10em;" v-model="date" placeholder="01-02-2563">
+                        </div>
+                    </div>
+                    <div class="col l6 " style="border: 1px solid black;">
+                        <div class="row">
+                            <div class="col l6 ">
+                                <p><b>นามผู้ซื้อ : </b> <input  style="width: 10em;" v-model="name" placeholder="นายออมสิน หงษ์อ่อนสา" size="4"> </p>
+
+                                <p><b>ที่อยู่ : </b><input style="width: 10em;" v-model="address" placeholder="" ></p>
+                                <p><b>โทรศัพท์ : </b><input style="width: 10em;" v-model="phone1" placeholder="062-356321"></p>
+                                <p><b>โทรสาร : </b><input style="width: 10em;" v-model="phone2" placeholder="053-452131"></p>
+                            </div>
+                            <div class="col l6 ">
+                                <p><b>Tax ID : </b><input style="width: 10em;" v-model="taxid" placeholder="502554555" size="4"></p>
+                                <p><b>สาขา : </b><input style="width: 10em;" v-model="branch" placeholder="เชียงใหม่" size="4"></p>
+                                <p><b>วิธีการชำระเงิน : </b><input style="width: 10em;" v-model="payment" placeholder="โอน" size="4"> </p>
+                                <p> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+
+                        <br>
+                        <table style="border: 2px solid black;">
+                            <thead>
+                                <tr>
+                                    <th>ลำดับ </th>
+                                    <th>รายการ </th>
+                                    <th>จำนวนเงิน </th>
+                                    <th>ยอดคงค้าง </th>
+                                    <th>ยอดชำระ </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input style="width: 4em;" v-model="no" placeholder="01"> </td>
+                                    <td><input style="width: 20em;" v-model="list" placeholder="ค่าเทอม"> </td>
+                                    <td><input style="width: 7em;" v-model="price" placeholder=""> </td>
+                                    <td><input style="width: 7em;" v-model="outstanding" placeholder="" @change="call"> </td>
+                                    <td><input style="width: 7em;" :value="total" placeholder=""> </td>
+                                </tr>
+                                <tr>
+                                    <td><input style="width: 4em;" v-model="no1" placeholder="02"> </td>
+                                    <td><input style="width: 20em;" v-model="list1" placeholder=""> </td>
+                                    <td><input style="width: 7em;" v-model="price1" placeholder=""> </td>
+                                    <td><input style="width: 7em;" v-model="outstanding1" placeholder="" @change="call"> </td>
+                                    <td><input style="width: 7em;" :value="total1" placeholder=""> </td>
+                                </tr>
+                                <tr>
+                                    <td><input style="width: 4em;" v-model="no2" placeholder="03"> </td>
+                                    <td><input style="width: 20em;" v-model="list2" placeholder=""> </td>
+                                    <td><input style="width: 7em;" v-model="price2" placeholder=""> </td>
+                                    <td><input style="width: 7em;" v-model="outstanding2" placeholder="" @change="call"> </td>
+                                    <td><input style="width: 7em;" :value="total2" placeholder=""> </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>(<input style="width: 20em;"  placeholder="                          สิบล้านบาทถ้วน">) </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td> <input style="width: 7em;" :value="totalall" placeholder=""></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <div class="row" style="margin-bottom:0px;">
+
+                        <div class="col s4" style="border: 1px solid black;">
+                            <p class="center">ในนาม</p><br>
+                            <p class="center">บริษัท อินโนซอฟต์แวร์จำกัด </p>
+                            <p class="center"><input type="text" id="Payments" style="width:7.1em;"></p>
+                            <p class="center">ผู้มีอำนาจลงนาม</p>
+                        </div>
+                        <div class="col s4" style="border: 1px solid black;">
+                            <p class="center"> จัดเตรียมโดย</p>
+                            <p class="center"><input type="text" id="Payments" style="width:7.1em;"></p>
+                            <p class="center">ตรวจสอบโดย</p>
+                            <p class="center"><input type="text" id="Payments" style="width:7.1em;"></p>
+                        </div>
+                        <div class="col s4" style="border: 1px solid black;">
+                            <p class="center">ชำระโดย <br>
+                                <label>
+                                    <input type="checkbox" />
+                                    <span style=" margin-left: 1.5em;">เงินสด</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" />
+                                    <span style=" margin-left: 3.5em;">เช็ค/โอนเงิน</span>
+                                </label>
+                            </p>
+                            <p class="center">ผู้รับเงิน</p>
+                            <p class="center"><input type="text" id="Payments" style="width:7.1em;"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="center">
+                        <button v-on:click="greets" class="btn waves-effect waves-light" type="submit" id="btn"
+                            name="action">Submit
+                            <i class="material-icons right"></i>
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            // name: '',
+            customernumber: '',
+            number: '',
+            date: '',
+            name: '',
+            address: '',
+            phone1: '',
+            phone2: '',
+            taxid: '',
+            branch: '',
+            payment: '',
+
+            no: '',
+            list: '',
+            price: '',
+            outstanding: '',
+            total: '',
+
+            no1: '',
+            list1: '',
+            price1: '',
+            outstanding1: '',
+            total1: '',
+
+            no2: '',
+            list2: '',
+            price2: '',
+            outstanding2: '',
+            total2: '',
+
+            totalall: '',
+            
+        },
+        methods: {
+            greets: function (event) {
+                var data = {
+                    // v: this.name,
+                    customernumber: this.customernumber,
+                    number: this.number,
+                    date: this.date,
+                    name: this.name,
+                    address: this.address,
+                    phone1: this.phone1,
+                    phone2: this.phone2,
+                    taxid: this.taxid,
+                    branch: this.branch,
+                    payment: this.payment,
+                    no: this.no,
+                    list: this.list,
+                    price: this.price,
+                    outstanding: this.outstanding,
+                    total: this.total,
+
+                    no: this.no1,
+                    list: this.list1,
+                    price: this.price1,
+                    outstanding: this.outstanding1,
+                    total: this.total1,
+
+                    no: this.no2,
+                    list: this.list2,
+                    price: this.price2,
+                    outstanding: this.outstanding2,
+                    total: this.total2,
+
+                    total: this.totalall,
+
+
+                }
+               
+                axios
+                    .post('http://localhost:8080/post', data)
+                    .then(response => {
+                        //this.info = response.data[3]
+                        //console.log(this.info)
+                    })
+            },
+            call(){
+                this.total =this.price-this.outstanding
+                this.total1 =this.price1-this.outstanding1
+                this.total2 =this.price2-this.outstanding2
+                this.totalall = this.total+this.total1+this.total2
+            }
+        }
+    })
+</script>
